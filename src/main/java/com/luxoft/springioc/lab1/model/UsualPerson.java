@@ -15,6 +15,17 @@ public class UsualPerson implements Person {
 
     private List<String> contacts;
 
+    // args constructor for application
+    public UsualPerson(String name, Country country, int age) {
+        this.name = name;
+        this.country = country;
+        this.age = age;
+    }
+
+    // no args constructor for getExpectedPerson() method
+    public UsualPerson() {
+    }
+
     public void setIsProgrammer(boolean isProgrammer) {
         this.isProgrammer = isProgrammer;
     }
@@ -71,19 +82,19 @@ public class UsualPerson implements Person {
     }
 
     public String toString() {
-        String s = "Name: " + name + "\n"
+        StringBuilder s = new StringBuilder("Name: " + name + "\n"
                 + "Age: " + age + "\n"
                 + "Height: " + height + "\n"
                 + "Country: " + country + "\n"
-                + "Is Programmer?: " + isProgrammer + "\n";
+                + "Is Programmer?: " + isProgrammer + "\n");
         if ((contacts != null) && (!contacts.isEmpty())) {
-            s += "Contacts: ";
+            s.append("Contacts: ");
             for (String contact : contacts) {
-                s += contact + ", ";
+                s.append(contact).append(", ");
             }
-            s += "\n";
+            s.append("\n");
         }
-        return s;
+        return s.toString();
     }
 
     public boolean equals(Object o) {
